@@ -19,7 +19,7 @@ class SignalTransportFactory extends AbstractTransportFactory
         $user = $dsn->getOption('user');
 
         if ('signal' === $scheme) {
-            return (new SignalTransport($cliPath, $user, $this->client, $this->dispatcher));
+            return (new SignalTransport($cliPath, $user, $this->dispatcher));
         }
 
         throw new UnsupportedSchemeException($dsn, 'signal', $this->getSupportedSchemes());
