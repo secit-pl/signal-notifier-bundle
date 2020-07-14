@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    SecIT\SignalNotifierBundle\Transport\SignalTransportFactory:
+        tags: [texter.transport_factory]

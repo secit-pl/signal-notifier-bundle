@@ -1,0 +1,29 @@
+{
+    "name": "secit-pl/signal-notifier-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony Notifier Signal support.",
+    "keywords": ["symfony", "notifier", "texter", "signal"],
+    "homepage": "http://secit.pl",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tomasz Gemza",
+            "email": "t.gemza@secit.pl"
+        }
+    ],
+    "require": {
+        "php": ">=7.4.0",
+        "symfony/framework-bundle": "~5.1",
+        "symfony/dependency-injection": "~5.1",
+        "symfony/notifier": "~5.1",
+        "symfony/process": "~5.1"
+    },
+    "autoload": {
+        "psr-4": { "SecIT\\SignalNotifierBundle\\": "" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
