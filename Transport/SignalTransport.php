@@ -7,6 +7,7 @@ namespace SecIT\SignalNotifierBundle\Transport;
 use Symfony\Component\Notifier\Exception\LogicException;
 use Symfony\Component\Notifier\Exception\RuntimeException;
 use Symfony\Component\Notifier\Message\MessageInterface;
+use Symfony\Component\Notifier\Message\SentMessage;
 use Symfony\Component\Notifier\Message\SmsMessage;
 use Symfony\Component\Notifier\Transport\AbstractTransport;
 use Symfony\Component\Process\Process;
@@ -46,7 +47,7 @@ final class SignalTransport extends AbstractTransport
     /**
      * @see https://github.com/AsamK/signal-cli
      */
-    protected function doSend(MessageInterface $message): void
+    protected function doSend(MessageInterface $message): SentMessage
     {
         if (!$message instanceof SmsMessage) {
             throw new LogicException(sprintf(
@@ -76,5 +77,7 @@ final class SignalTransport extends AbstractTransport
                 $process->getExitCode()
             ));
         }
+
+        return new SentMessage($message, 'signal');
     }
 }
